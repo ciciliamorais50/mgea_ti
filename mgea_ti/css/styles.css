@@ -1,0 +1,55 @@
+/* Estilos personalizados do SGTI */
+
+body {
+    padding-bottom: 60px; /* Espaço para o footer fixo */
+}
+
+.alert {
+    border-radius: 12px;
+}
+
+.alert-secondary,
+.alert-success,
+.alert-danger,
+.alert-warning,
+.alert-info {
+    background-color: #f6f6f6 !important;
+    color: #222 !important;
+    border-color: #d8d8d8 !important;
+}
+
+.btn-success {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+.btn-outline-success {
+    color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+.badge.bg-success,
+.badge.bg-danger,
+.badge.bg-warning,
+.badge.bg-info {
+    background-color: #f2f2f2 !important;
+    color: #212529 !important;
+    border: 1px solid #ced4da !important;
+}
+
+.card-hover {
+    position: relative;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
