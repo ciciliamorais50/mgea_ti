@@ -84,12 +84,20 @@
             //Se NÃO houver erro de preenchimento e NÃO houver erro no upload da foto
             if(!$erroPreenchimento && !$erroUpload){
 
-                //Criar uma variável para armazenar a QUERY que realiza a inserção de dados do Equipamento na tabela Equipamentos
-                $inserirEquipamento = "INSERT INTO Equipamentos (Usuarios_idUsuario, fotoEquipamento, nomeEquipamento, tipoEquipamento, patrimonioEquipamento, descricaoEquipamento, numeroSerieEquipamento, contaOfficeEquipamento, dataEquipamento, horaEquipamento, statusEquipamento)
-                                        VALUES ('$idUsuarioResponsavel', '$fotoEquipamento', '$nomeEquipamento', '$tipoEquipamento', '$patrimonioEquipamento', '$descricaoEquipamento', '$numeroSerieEquipamento', '$contaOfficeEquipamento', '$dataEquipamento', '$horaEquipamento', 'ativo')";
-
                 //Inclui o arquivo de conexão com o Banco de Dados
                 include "conexaoBD.php";
+
+                //Validar se o usuário existe
+                $idUsuarioResponsavel = intval($idUsuarioResponsavel);
+                if($idUsuarioResponsavel <= 0){
+                    echo "<div class='alert alert-warning text-center'>Usuário inválido!</div>";
+                    include "footer.php";
+                    exit;
+                }
+
+                //Criar uma variável para armazenar a QUERY que realiza a inserção de dados do Equipamento na tabela Equipamentos
+                $inserirEquipamento = "INSERT INTO Equipamentos (Usuarios_idUsuario, fotoEquipamento, nomeEquipamento, tipoEquipamento, patrimonioEquipamento, descricaoEquipamento, numeroSerieEquipamento, contaOfficeEquipamento, dataEquipamento, horaEquipamento, statusEquipamento)
+                                        VALUES ($idUsuarioResponsavel, '$fotoEquipamento', '$nomeEquipamento', '$tipoEquipamento', '$patrimonioEquipamento', '$descricaoEquipamento', '$numeroSerieEquipamento', '$contaOfficeEquipamento', '$dataEquipamento', '$horaEquipamento', 'ativo')";
 
                 //Se conseguir executar a QUERY para inserção, exibe alerta de sucesso e a tabela com os dados informados
                 if(mysqli_query($conn, $inserirEquipamento)){

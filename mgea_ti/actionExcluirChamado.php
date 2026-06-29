@@ -15,10 +15,10 @@
 
     //Verifica se o idChamado foi enviado pela URL
     if(isset($_GET['idChamado'])){
-        $idChamado = $_GET['idChamado'];
+        $idChamado = intval($_GET['idChamado']);
 
         //QUERY para excluir o chamado
-        $excluirChamado = "DELETE FROM Chamados WHERE idChamado = $idChamado";
+        $excluirChamado = "DELETE FROM chamados WHERE idChamado = $idChamado";
 
         if(mysqli_query($conn, $excluirChamado)){
             echo "

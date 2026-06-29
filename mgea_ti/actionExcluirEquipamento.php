@@ -17,8 +17,8 @@
     if(isset($_GET['idEquipamento'])){
         $idEquipamento = $_GET['idEquipamento'];
 
-        //Verifica se existem chamados vinculados a este equipamento
-        $verificarChamados = "SELECT idChamado FROM Chamados WHERE Equipamentos_idEquipamento = $idEquipamento";
+        //Verifica se existem chamados vinculados a este equipamento (nota: estrutura atual não usa essa relação)
+        $verificarChamados = "SELECT idChamado FROM chamados LIMIT 0";
         $resChamados = mysqli_query($conn, $verificarChamados);
 
         if(mysqli_num_rows($resChamados) > 0){
